@@ -78,23 +78,6 @@ const Product = () => {
                 </div>
               </div>
             </div>
-            <div>
-              {cat && (
-                <div className="px-4 py-2">
-                  <h3 className="text-gray-400">
-                    Showing{" "}
-                    <span className="text-gray-700 text-lg font-bold">
-                      {cat}
-                    </span>
-                  </h3>
-                </div>
-              )}
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 px-4 gap-2 items-start overflow-auto">
-                {dataProduct.map((product, index) => (
-                  <ProductItem product={product} key={index} />
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

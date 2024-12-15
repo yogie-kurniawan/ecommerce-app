@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-  --primary-color-5: #104bec;
+  --primary-color-5: #118b50;
   --primary-color-4: #2c7ffcaa;
   --primary-color-3: #3183ffaa;
   --primary-color-2: rgba(99, 147, 218, 0.667);
@@ -14,6 +14,6 @@
 
 @layer base {
   body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 }

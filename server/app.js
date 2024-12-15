@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 
 const startServer = async () => {
   try {
-    const URI = process.env.MONGO_URI;
-    await connectDB(URI);
+    // const URI = process.env.MONGO_URI;
+    // await connectDB(URI);
     app.listen(PORT, () => {
       console.log(`App is listening on port ${PORT}`);
     });

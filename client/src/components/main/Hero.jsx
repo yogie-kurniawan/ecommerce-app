@@ -5,19 +5,15 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen pt-32 pb-16">
+    <section className="md:min-h-[300px] pt-24">
       <div className="w-full h-full max-w-screen-xl px-4 mx-auto">
-        <div className="w-full pt-12 pb-8 bg-primary-500 rounded-xl">
+        <div className="w-full h-full bg-primary-light rounded-xl">
           <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-7 p-10">
-              <h1 className="text-6xl font-bold text-white">
+            <div className="col-span-12 lg:col-span-7 p-12">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-primary-dark">
                 Discover the Latest Trends. Shop Now!
               </h1>
-              <p className="text-md text-gray-100 mt-4">
-                Stay ahead of the fashion game with our curated collections.
-                From everyday essentials to statement pieces.
-              </p>
-              <div className="mt-4 flex items-center gap-4">
+              <div className="mt-8 flex items-center gap-4">
                 <Button
                   type="link"
                   variant="secondary"
@@ -28,11 +24,11 @@ const Hero = () => {
                 </Button>
               </div>
             </div>
-            <div className="col-span-5">
+            <div className="col-span-12 lg:col-span-5 pt-4">
               <img
                 src={HeroImg}
                 alt=""
-                className="w-full object-cover h-full"
+                className="h-[300px] mx-auto object-cover lg:-translate-x-10"
               />
             </div>
           </div>

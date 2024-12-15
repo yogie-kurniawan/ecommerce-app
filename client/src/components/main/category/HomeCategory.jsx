@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryItem from "components/main/CategoryItem";
+import CategoryItem from "components/main/category/CategoryItem";
 import SectionTitle from "components/main/SectionTitle";
 
 const categories = [
@@ -48,12 +48,12 @@ const categories = [
 const HomeCategory = () => {
   return (
     <section className="bg-white">
-      <div className="w-full max-w-screen-xl px-4 py-16 mx-auto">
+      <div className="w-full max-w-screen-xl px-4 py-4 mx-auto">
         <div>
           <div>
             <SectionTitle>Categories</SectionTitle>
           </div>
-          <div className="flex items-center py-8 gap-1">
+          <div className="flex items-center gap-1 w-full overflow-auto">
             {categories.map((category, index) => (
               <CategoryItem category={category} key={index} />
             ))}

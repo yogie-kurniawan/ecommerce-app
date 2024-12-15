@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import AdminRoute from "./AdminRoute";
-import MainRoute from "./MainRoute";
 import Navbar from "components/main/Navbar";
-import Cart from "components/main/cart/Cart";
 import * as view from "views";
 import {
   BrowserRouter as Router,
@@ -12,15 +8,6 @@ import {
 } from "react-router-dom";
 
 const AppRouter = () => {
-  const [isCartVisible, setCartVisible] = useState(false);
-
-  const toggleCart = () => {
-    setCartVisible(!isCartVisible);
-  };
-  const closeCart = () => {
-    setCartVisible(false);
-  };
-
   const location = useLocation();
 
   const excludeRoutes = ["/signin", "/signup"];
@@ -29,14 +16,15 @@ const AppRouter = () => {
     <>
       {!excludeRoutes.includes(location.pathname) && (
         <>
-          <Navbar toggleCart={toggleCart} />
-          <Cart isCartVisible={isCartVisible} closeCart={closeCart} />
+          <Navbar />
         </>
       )}
       <Routes>
         <Route exact path="/" element={<view.Home />} />
-        <Route exact path="/products" element={<view.Product />} />
-        <Route exact path="/sigin" element={<view.Product />} />
+        <Route path="/products" element={<view.Product />} />
+        <Route path="/products/:id" element={<view.DetailProduct />} />
+        <Route path="/cart" element={<view.Cart />} />
+        <Route path="/sigin" element={<view.Product />} />
         {/* <AdminRoute
           path="/admin"
           element={<Navigate to="/admin/dashboard" />}
