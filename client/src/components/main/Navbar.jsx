@@ -37,7 +37,7 @@ const Navbar = () => {
     <>
       <nav
         className={`w-full fixed top-0 z-[1000] ${
-          isScrolledDown ? "h-16 bg-white shadow-md" : "h-24 pt-4"
+          isScrolledDown ? "h-16 bg-white shadow-md" : "h-24"
         } transition-all duration-300 ease-in-out`}
       >
         <div className="relative h-full max-w-screen-xl mx-auto px-4 py-3 ">

@@ -22,6 +22,7 @@ const cartSlice = createSlice({
         ? JSON.parse(localStorage.getItem("cart"))
         : [];
       state.cartItems = storedCart;
+      cartSlice.caseReducers.getSubTotal(state);
     },
     addToCart(state, action) {
       const item = action.payload;
@@ -78,6 +79,7 @@ const cartSlice = createSlice({
     },
   },
 });
+
 export const {
   getCart,
   addToCart,

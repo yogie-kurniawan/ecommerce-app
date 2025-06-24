@@ -6,6 +6,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import ProtectedRoute from "components/ProtectedRoute";
 
 const AppRouter = () => {
   const location = useLocation();
@@ -21,10 +22,18 @@ const AppRouter = () => {
       )}
       <Routes>
         <Route exact path="/" element={<view.Home />} />
+        <Route path="/signin" element={<view.Signin />} />
         <Route path="/products" element={<view.Product />} />
         <Route path="/products/:id" element={<view.DetailProduct />} />
         <Route path="/cart" element={<view.Cart />} />
-        <Route path="/sigin" element={<view.Product />} />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <view.Checkout />
+            </ProtectedRoute>
+          }
+        />
         {/* <AdminRoute
           path="/admin"
           element={<Navigate to="/admin/dashboard" />}

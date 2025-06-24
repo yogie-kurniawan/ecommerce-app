@@ -1,42 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import ProductItem from "components/main/product/ProductItem";
-import SectionTitle from "components/main/SectionTitle";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import { fetchProducts } from "features/reducers/productSlice";
 
-const dataProduct = [
-  {
-    id: 1,
-    image: "https://m.media-amazon.com/images/I/71qoLNg7CcL._AC_SX522_.jpg",
-    title: "Jaket bertenaga super and kjewg",
-    price: "2000000",
-  },
-  {
-    id: 2,
-    image: "https://m.media-amazon.com/images/I/61FRgVZBhzL._AC_UY1000_.jpg",
-    title: "Jaket bertenaga super awjeigwieg",
-    price: "2000000",
-  },
-  {
-    id: 2,
-    image:
-      "https://down-id.img.susercontent.com/file/id-11134207-7r991-lr1utphw098t83_tn.webp",
-    title: "Jaket bertenaga super akjwiegiaweg",
-    price: "2000000",
-  },
-  {
-    id: 2,
-    image: "https://m.media-amazon.com/images/I/61FRgVZBhzL._AC_UY1000_.jpg",
-    title: "Jaket bertenaga super",
-    price: "2000000",
-  },
-  {
-    id: 2,
-    image: "https://m.media-amazon.com/images/I/61FRgVZBhzL._AC_UY1000_.jpg",
-    title: "Jaket bertenaga super",
-    price: "2000000",
-  },
-];
 const categories = [
   {
     name: "Hodie",
@@ -44,12 +12,22 @@ const categories = [
   },
 ];
 const Product = () => {
+  const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const [cat, setCat] = useState(searchParams.get("cat") ?? "");
+  const {
+    products,
+    loading: productLoading,
+    error: productError,
+  } = useSelector((state) => state.product);
 
   useEffect(() => {
     setCat(searchParams.get("cat"));
   }, [searchParams]);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <section className="bg-white pt-16">
@@ -58,10 +36,10 @@ const Product = () => {
           <div className="flex">
             <div>
               <div className="w-[230px] bg-white rounded-lg border border-gray-200">
-                <div className="p-4 border-b border-gray-200">
-                  <h3 className="font-normal text-gray-900">Categories</h3>
+                <div className="p-2 border-b border-gray-200">
+                  <h3 className="font-semibold text-gray-900">Categories</h3>
                 </div>
-                <div className="p-4">
+                <div className="p-2">
                   <div className="flex flex-col gap-2 items-start">
                     {categories.map((category, index) => (
                       <Link
@@ -90,7 +68,7 @@ const Product = () => {
                 </div>
               )}
               <div className="grid sm:grid-cols-2 md:grid-cols-4 px-4 gap-2 items-start overflow-auto">
-                {dataProduct.map((product, index) => (
+                {products.map((product, index) => (
                   <ProductItem product={product} key={index} />
                 ))}
               </div>

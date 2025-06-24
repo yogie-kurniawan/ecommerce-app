@@ -16,7 +16,7 @@ function Cart() {
 
   return (
     <section className="bg-white pt-16">
-      <div className="w-full max-w-screen-xl min-h-screen px-4 py-4 md:py-16 mx-auto relative">
+      <div className="w-full max-w-screen-xl min-h-screen px-4 py-10 md:py-16 mx-auto relative">
         <div className="flex flex-col md:flex-row gap-4 w-full">
           <div className="flex-grow">
             <div className="w-full flex justify-between items-center">
@@ -27,7 +27,7 @@ function Cart() {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col py-4">
+            <div className="flex flex-col gap-2 py-4">
               {cartItems.map((item, id) => (
                 <CartItem product={item} key={id} />
               ))}
@@ -43,7 +43,7 @@ function Cart() {
               </div>
               <div className="flex justify-between items-center font-semibold text-md text-gray-700">
                 Total :{" "}
-                <span className="text-lg">{currencyFormat(subTotal)}</span>
+                <span className="text-2xl">{currencyFormat(subTotal)}</span>
               </div>
 
               <div className="mt-8 flex justify-center items-start">
